@@ -1,5 +1,9 @@
+# this allows us to use code from
+# the open-source pygame library
+# throughout this file
+import pygame
 def main():
-    print("Hello from joshua-asteroids-game!")
+    print("Starting Asteroids!")
 
 
 if __name__ == "__main__":
