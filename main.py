@@ -27,6 +27,9 @@ def main():
             if event.type == pygame.QUIT:
                 return
         
+        player.update(dt)
+
+        #this is when rendering starts
         screen.fill((0,0,0))
 
         player.draw(screen)
