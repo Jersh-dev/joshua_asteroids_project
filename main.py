@@ -1,3 +1,4 @@
+#main.py
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
@@ -7,6 +8,7 @@ from player import *
 from circleshape import *
 from asteroid import *
 from asteroidfield import *
+from shot import *
 
 def main():
     #starts pygame
@@ -22,12 +24,13 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
     
     #Assign containers to Player class
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = updatable
-
+    Shot.containers = (shots, updatable, drawable)
 
     #makes a clock to help with resource load
     clock = pygame.time.Clock() 
