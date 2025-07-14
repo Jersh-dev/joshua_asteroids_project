@@ -55,6 +55,11 @@ def main():
             if asteroid.collisions(player):
                 print("Game over!")
                 sys.exit()
+            for shot in shots:
+                if asteroid.collisions(shot):
+                    shot.kill()
+                    asteroid.split()
+
 
         #this is when rendering starts
         screen.fill((0,0,0))

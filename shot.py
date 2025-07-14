@@ -1,3 +1,4 @@
+#shot.py
 import pygame
 from circleshape import *
 from player import *
