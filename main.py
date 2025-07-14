@@ -16,23 +16,36 @@ def main():
     #Opens the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    #Create Groups Here
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    #Assign containers to Player class
+    Player.containers = (updatable, drawable)
+
     #makes a clock to help with resource load
     clock = pygame.time.Clock() 
-
+    
+    #Delta Time
     dt = 0
+
+    #Keep this line despite the grey, this still constructs the player object
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        
-        player.update(dt)
+            
+        #This will update all the sprites that are updatable
+        updatable.update(dt)
 
         #this is when rendering starts
         screen.fill((0,0,0))
 
-        player.draw(screen)
+        #This will draw all drawable sprites
+        for sprite in drawable:
+            sprite.draw(screen)
 
         pygame.display.flip()
         
